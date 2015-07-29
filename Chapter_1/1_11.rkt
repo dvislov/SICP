@@ -3,7 +3,9 @@
 (define (our-func x)
   (if (< x 3)
     x
-    (+ (our-func (- x 1)) (+ (our-func (- x 2)) (our-func (- x 3))))))
+    (+ (our-func (- x 1))
+       (our-func (- x 2))
+       (our-func (- x 3)))))
 
 (our-func 1)
 (our-func 2)
@@ -22,9 +24,7 @@
 (define (our-new-func-iter a b c count)
   (cond ((< count 3) count)
         ((= count 3) a)
-        (else (our-new-func-iter (+ a (+ b c)) a b (- count 1)))
-  )
-)
+        (else (our-new-func-iter (+ a b c) a b (- count 1)))))
 
 (our-new-func 1)
 (our-new-func 2)
